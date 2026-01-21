@@ -5,13 +5,14 @@ using System.Linq;
 using System.Media;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace GameProgramming_Challenge2Inheritance_GabeRyan
 {
     internal class Program
     {
 
-        
+        static int score = 0;
 
         
         static void Main(string[] args)
@@ -71,6 +72,10 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
             {
                 _questions[i].Ask();
                 _questions[i].CheckAnswer();
+                Console.WriteLine($"Score: {score}");
+                Console.ReadKey();
+                Console.Clear();
+               
             }
 
 
@@ -99,10 +104,12 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
             }
             public virtual bool CheckAnswer()
             {
+                
                 if(Console.ReadLine() == _answerText)
                 {
                     
                     Console.WriteLine("Correct");
+                    score += 1;
                     return true;
                 }
                 else
@@ -152,9 +159,9 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
                 {
                     Console.ReadKey();
                     Console.WriteLine("Correct");
+                    score += 1;
                     return true;
                 }
-                else if(input !=)
                 else
                 {
                     Console.WriteLine("Incorrect");
