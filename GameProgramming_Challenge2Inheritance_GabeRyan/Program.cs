@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -66,7 +67,11 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
 
             Console.WriteLine("Classic Video Game Quiz");
 
-
+            for(int i = 0; i < _questions.Count; i++)
+            {
+                _questions[i].Ask();
+                _questions[i].CheckAnswer();
+            }
 
 
 
@@ -96,10 +101,13 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
             {
                 if(Console.ReadLine() == _answerText)
                 {
+                    
+                    Console.WriteLine("Correct");
                     return true;
                 }
                 else
                 {
+                    Console.WriteLine("Incorrect");
                     return false;
                 }
             }
@@ -130,10 +138,11 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
 
                 for(int i = 0; i < _answerOptions.Length; i++)
                 {
-                    Console.WriteLine($"{i + 1} {_answerOptions[i]}");   
+                    Console.WriteLine($"{i + 1}. {_answerOptions[i]}");   
                 }
 
                 ConsoleKeyInfo input = Console.ReadKey();
+                
 
                 char inputAsChar = input.KeyChar;
 
@@ -141,12 +150,17 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
 
                 if(int.Parse(inputAsString) - 1 == _correctAnswer)
                 {
+                    Console.ReadKey();
+                    Console.WriteLine("Correct");
                     return true;
                 }
+                else if(input !=)
                 else
                 {
+                    Console.WriteLine("Incorrect");
                     return false;
                 }
+                
                 
             }
         }
