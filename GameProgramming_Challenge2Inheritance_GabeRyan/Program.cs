@@ -166,7 +166,7 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
                 
                 int.TryParse(inputAsString, out int inputAsInt);
 
-                if (inputAsInt - 1 == _correctAnswer)
+                if (inputAsInt - answerOffset == _correctAnswer)
                 {
                     Console.ReadKey();
                     Console.WriteLine("Correct");
