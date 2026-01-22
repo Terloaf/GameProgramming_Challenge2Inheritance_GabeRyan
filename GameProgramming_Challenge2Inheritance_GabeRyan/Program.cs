@@ -13,6 +13,7 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
     {
 
         static int score = 0;
+        static int answerOffset = 1;
 
         
         static void Main(string[] args)
@@ -163,8 +164,9 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
                 string inputAsString = inputAsChar.ToString();
 
                 
+                int.TryParse(inputAsString, out int inputAsInt);
 
-                if(int.TryParse(inputAsString, out _correctAnswer))
+                if (inputAsInt - 1 == _correctAnswer)
                 {
                     Console.ReadKey();
                     Console.WriteLine("Correct");
