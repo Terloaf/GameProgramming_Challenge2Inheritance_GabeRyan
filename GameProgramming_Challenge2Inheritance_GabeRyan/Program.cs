@@ -78,6 +78,12 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
                
             }
 
+            Console.WriteLine($"You got {score} out of {_questions.Count} correct!");
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
+            Environment.Exit(0);
+            
+
 
 
 
@@ -135,7 +141,7 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
 
                 _answerOptions = answerOptions;
 
-                
+
             }
 
             public override bool CheckAnswer()
@@ -143,19 +149,22 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
 
                 Console.WriteLine("Press the correct key");
 
-                for(int i = 0; i < _answerOptions.Length; i++)
+                for (int i = 0; i < _answerOptions.Length; i++)
                 {
-                    Console.WriteLine($"{i + 1}. {_answerOptions[i]}");   
+                    Console.WriteLine($"{i + 1}. {_answerOptions[i]}");
                 }
 
                 ConsoleKeyInfo input = Console.ReadKey();
+
                 
 
                 char inputAsChar = input.KeyChar;
 
                 string inputAsString = inputAsChar.ToString();
 
-                if(int.Parse(inputAsString) - 1 == _correctAnswer)
+                
+
+                if(int.TryParse(inputAsString, out _correctAnswer))
                 {
                     Console.ReadKey();
                     Console.WriteLine("Correct");
@@ -164,6 +173,7 @@ namespace GameProgramming_Challenge2Inheritance_GabeRyan
                 }
                 else
                 {
+                    Console.ReadKey();
                     Console.WriteLine("Incorrect");
                     return false;
                 }
